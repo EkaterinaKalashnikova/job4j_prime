@@ -4,7 +4,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 
-
 public class TicTacToe extends JComponent {
     private static final int FIELD_EMPTY = 0; //пустое поле
     private static final int FIELD_X = 10; //поле с крестиком
@@ -42,11 +41,11 @@ public class TicTacToe extends JComponent {
                 field[i][j] = isXturn ? FIELD_X : FIELD_0;
                 isXturn = !isXturn; //меняем флаг хода
                 repaint(); //перерисовка компонента из метода paintComponent()
-               int res = chackState();
-                if(res != 0) {
-                    if (res == FIELD_0*3) { //победил 0
+                int res = chackState();
+                if (res != 0) {
+                    if (res == FIELD_0 * 3) { //победил 0
                         JOptionPane.showMessageDialog(this, "нолики выиграли!", "Победа!", JOptionPane.INFORMATION_MESSAGE);
-                    } else if (res == FIELD_X*3) { //победил Х
+                    } else if (res == FIELD_X * 3) { //победил Х
                         JOptionPane.showMessageDialog(this, "крестики выиграли!", "Победа!", JOptionPane.INFORMATION_MESSAGE);
                     } else {
                         JOptionPane.showMessageDialog(this, "ничья!", "Ничья!", JOptionPane.INFORMATION_MESSAGE);
@@ -132,30 +131,32 @@ public class TicTacToe extends JComponent {
         if (diag2 == FIELD_0 * 3 || diag2 == FIELD_X * 3) {
             return diag2;
         }
-        int chack_i, chack_j;
+        int chackI, chackJ;
         boolean hasEmpty = false;
         //будем бегать по всем рядам
         for (int i = 0; i < 3; i++) {
-            chack_i = 0;
-            chack_j = 0;
+            chackI = 0;
+            chackJ = 0;
             for (int j = 0; j < 3; j++) {
                 //суммируем знаки в текущем ряду
                 if (field[i][j] == 0) {
                     hasEmpty = true;
                 }
-                chack_i += field[i][j];
-                chack_j += field[j][i];
+                chackI += field[i][j];
+                chackJ += field[j][i];
             }
             //если выигрыш крестика или нолика, то выходим
-            if(chack_i == FIELD_0*3 || chack_i == FIELD_X) {
-                return chack_i;
+            if (chackI == FIELD_0 * 3 || chackI == FIELD_X) {
+                return chackI;
             }
-            if(chack_j == FIELD_0*3 || chack_j == FIELD_X) {
-                return chack_j;
+            if (chackJ == FIELD_0 * 3 || chackJ == FIELD_X) {
+                return chackJ;
             }
         }
         if (hasEmpty) {
-            return  0;
-        } else  return -1;
+            return 0;
+        } else {
+            return -1;
+        }
     }
 }
