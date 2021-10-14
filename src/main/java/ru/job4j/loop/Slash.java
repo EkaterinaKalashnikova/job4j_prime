@@ -4,14 +4,8 @@ public class Slash {
     public static void draw(int size) {
         for (int row = 0; row < size; row++) {
             for (int cell = 0; cell < size; cell++) {
-                boolean left = false; /* добавить условие, по которому нужно определить ставить ли символ или нет. */
-                boolean right = false; /* добавить условие, что нужно ставить элемент в правый угол. */
-                if (row == cell) {
-                    left = true;
-                }
-                if (row == size - 1 - cell) {
-                    right = true;
-                }
+                boolean left = row == cell; /* добавить условие, по которому нужно определить ставить ли символ или нет. */
+                boolean right = row == size - 1 - cell; /* добавить условие, что нужно ставить элемент в правый угол. */
                 /*4,0  3,1  2,2  1,3  0,4 */
                 if (left) {
                     System.out.print("0");
