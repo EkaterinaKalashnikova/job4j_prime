@@ -6,10 +6,7 @@ public class PrintEvenElements {
         for (int i = 0; i < numbers.length; i++) {
             if (numbers[i] % 2 == 0) {
                 evenNums++;
-                System.out.println(
-                        "Текущий элемент массива начиная с последнего: "
-                                + numbers[numbers.length - 1 - i]
-                );
+                System.out.println("Текущий элемент массива начиная с последнего: " + numbers[numbers.length - 1 - i]);
             }
         }
         int[] numbers1 = new int[evenNums];
